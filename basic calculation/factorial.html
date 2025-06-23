@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6. factorial</title>
+</head>
+<body>
+       <input type="text" id="first">
+       <button onclick="factorial()">Click</button>
+        <h1 id="print"></h1>
+       <script>
+  function factorial() {
+    let num = +document.getElementById("first").value;
+    let result = 1;
+    for (let i = 1; i <= num; i++) {
+      result *= i;
+    }
+    document.getElementById("print").innerText = `Factorial: ${result}`;
+    document.getElementById("first").value = "";
+  }
+</script>
+</body>
+</html>

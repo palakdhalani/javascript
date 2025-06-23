@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5. reverse</title>
+</head>
+<body>
+    <input type="text" name="" id="a">
+    <button id="push">Click</button>
+    <h1 id="revers"></h1>
+    <script>
+  document.getElementById("push").addEventListener("click", function () {
+    let val = document.getElementById("a").value;
+    let reversed = "";
+    for (let i = val.length - 1; i >= 0; i--) {
+      reversed += val[i];
+    }
+    document.getElementById("revers").innerText = `${val} : ${reversed}`;
+    document.getElementById("a").value = "";
+  });
+</script>
+</body>
+</html>

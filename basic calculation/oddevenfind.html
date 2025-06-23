@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>2.odd & even</title>
+  </head>
+  <body>
+    <input type="text" id="val" />
+    <button onclick="checkOddEven()">Click</button>
+    <h1 id="aa"></h1>
+
+    <script>
+      function checkOddEven() {
+        let num = document.getElementById("val").value;
+        let result = document.getElementById("aa");
+        if (num % 2 == 0) {
+          result.innerText = `${num} is Even`;
+        } else {
+          result.innerText = `${num} is Odd`;
+        }
+        document.getElementById("val").value = "";
+      }
+    </script>
+  </body>
+</html>
