@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Checker</title>
+</head>
+
+<body>
+
+    <input type="text" id="vowel" placeholder="Enter Text">
+    <button onclick="countVowels()">Click</button>
+    <h1 id="aval"></h1>
+
+    <script>
+        function countVowels() {
+            let text = document.getElementById("vowel").value.toLowerCase();
+            let count = 0;
+            for (let i = 0; i < text.length; i++) {
+                if ("aeiou".includes(text[i])) {
+                    count++;
+                }
+            }
+            document.getElementById("aval").innerText = `Vowels: ${count}`;
+            document.getElementById("vowel").value = "";
+        }
+    </script>
+</body>
+
+</html>

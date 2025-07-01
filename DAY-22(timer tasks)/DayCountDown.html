@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="" id="day" placeholder="Enter the day"/>
+    <input type="text" name="" id="hours" placeholder="Enter the hours"/>
+    <input type="text" name="" id="minutes" placeholder="Enter the minutes" />
+    <input type="text" name="" id="seconds"  placeholder="Enter the seconds"/>
+
+    <button onclick="start()">Start</button>
+    <div class="box">
+        <div class="1"></div>
+        <div class="2"></div>
+        <div class="3"></div>
+        <div class="4"></div>
+    </div>
+  </body>
+  <script>
+    function start(){
+        let day = document.getElementById("day").value
+        let day2 = document.getElementById("day")
+        let hours = document.getElementById("hours").value
+        let hours2 = document.getElementById("hours")
+        let minutes = document.getElementById("minutes").value
+        let minutes2 = document.getElementById("mintues")
+        let seconds = document.getElementById("seconds").value
+        let seconds2 = document.getElementById("seconds")
+
+        let one = document.getElementById("1")
+           one.innerHTML = `<h2>${day}</h2>`
+        let two = document.getElementById("2")
+           two.innerHTML = `<h2>${hours}</h2>`
+        let three = document.getElementById("3")
+           three.innerHTML = `<h2>${minutes}</h2>`
+        let four = document.getElementById("4")
+          four.innerHTML = `<h2>${seconds}</h2>`
+
+
+        day2.value = ""
+        hours2.value = ""
+        minutes2.value = ""
+        seconds2.value = ""
+        
+    }
+  </script>
+</html>

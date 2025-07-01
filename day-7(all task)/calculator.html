@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>1.ADD</h4>
+    <h4>2.SUBSTRACTION</h4>
+    <h4>3.MULTIPLICATION</h4>
+    <h4>4.DIVISION</h4>
+    <h4>5.MODE</h4>
+
+       <input type="text" id="a">
+       <input type="text" id="b">
+   
+
+    
+    <button onclick="calculator()">click for </button>
+    <h1 id="mark"></h1>
+</body>
+<script>
+    let mark = document.getElementById("mark");
+    function calculator(){
+        let a = document.getElementById("a").value
+        let b = document.getElementById("b").value
+        let user = prompt("Enter your choice (1-5):");
+
+        switch(user){
+
+            case '1':
+             mark.innerText = `addition of ${a} and ${b} is ${Number(a) + Number(b)}`
+            break;
+
+            case '2':
+             mark.innerText = `substraction of ${a} and ${b} is ${Number(a) - Number(b)}`
+            break;
+
+            case '3':
+             mark.innerText = `multiplication of ${a} and ${b} is ${Number(a) * Number(b)}`
+            break;
+
+            case '4':
+             mark.innerText = `division of ${a} and ${b} is ${Number(a) / Number(b)}`
+            break;
+
+            case '5':
+             mark.innerText = `mode of ${a} and ${b} is ${Number(a) % Number(b)}`
+            break;
+
+            default:
+            mark.innerText = "Invalid choice!";
+            
+            
+        }
+    }
+</script>
+</html>

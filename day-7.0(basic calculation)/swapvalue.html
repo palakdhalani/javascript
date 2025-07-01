@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>1.Swap value</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="text" id="a" />
+      <input type="text" id="b" />
+      <button id="btn">Click</button>
+    </form>
+    <h1 id="aval"></h1>
+    <h1 id="bval"></h1>
+
+    <script>
+      document.getElementById("btn").addEventListener("click", function (e) {
+        e.preventDefault();
+        let val1 = document.getElementById("a").value;
+        let val2 = document.getElementById("b").value;
+
+        let temp = val1;
+        val1 = val2;
+        val2 = temp;
+
+        document.getElementById("aval").innerText = `A = ${val1}`;
+        document.getElementById("bval").innerText = `B = ${val2}`;
+
+        document.getElementById("a").value = "";
+        document.getElementById("b").value = "";
+      });
+    </script>
+  </body>
+</html>

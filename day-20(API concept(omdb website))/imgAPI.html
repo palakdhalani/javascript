@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OMDb Movie Poster Search</title>
+    <style>
+      body {
+        background: #f5f6fa;
+        font-family: "Segoe UI", Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      .search-container {
+        display: flex;
+        justify-content: center;
+        margin: 40px 0 20px 0;
+      }
+      #search {
+        width: 350px;
+        padding: 14px 20px;
+        border: none;
+        border-radius: 30px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        font-size: 1.1rem;
+        outline: none;
+        transition: box-shadow 0.2s;
+      }
+      #search:focus {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.13);
+      }
+      .box1 {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        padding: 20px;
+      }
+      .card {
+        background: #fff;
+        border-radius: 18px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        width: 180px;
+        padding: 18px 12px 12px 12px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        transition: transform 0.18s;
+      }
+      .card:hover {
+        transform: translateY(-6px) scale(1.04);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.13);
+      }
+      .card img {
+        width: 140px;
+        height: 210px;
+        object-fit: cover;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        background: #e1e1e1;
+      }
+      .card-title {
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+        margin-bottom: 6px;
+        color: #222;
+      }
+      .card-year {
+        font-size: 0.95rem;
+        color: #666;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="search-container">
+      <input
+        type="text"
+        id="search"
+        placeholder="🔍 Search for movies..."
+        oninput="inp()"
+      />
+    </div>
+    <div class="box1" id="market" style="width: 100%; height: auto"></div>
+
+    <script>
+      function inp() {
+        let search = document.getElementById("search").value;
+        let market = document.getElementById("market");
+        if (search === "") {
+          market.innerHTML = "";
+            return;
+        } 
+        else {
+          fetch(` http://www.omdbapi.com/?s=${search}&apikey=452fcfbc`)
+            .then((req) => req.json())
+            .then((res) => {
+              res.Search.forEach((element) => {
+                market.innerHTML += `<img src="${element.Poster}" alt="" >`;
+              });
+            });
+        }
+      }
+    </script>
+  </body>
+</html>

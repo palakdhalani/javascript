@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" id="a" />
+    <input type="text" id="b" />
+    <button onclick="swapvalue()">click to swap the value</button>
+
+    <h1 id="nestA"></h1>
+    <h1 id="nestB"></h1>
+  </body>
+  <script>
+    let nestA = document.getElementById("nestA");
+    let nestB = document.getElementById("nestB");
+    function swapvalue() {
+      let a = document.getElementById("a").value;
+      let b = document.getElementById("b").value;
+
+      let c = a;
+      a = b;
+      b = c;
+
+      nestA.innerText = `A = ${a}`;
+      nestB.innerText = `B = ${b}`;
+    }
+  </script>
+</html>

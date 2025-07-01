@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+
+    #container{
+      width: 100%;
+      height: 200vh;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-evenly;
+     
+     
+    }
+     #container div {
+      border: 1px solid red;
+      margin-top: 20px;
+     }
+    #container div img {
+      width: 90%;
+      height: 300px;
+      margin-top: 60px;
+    }
+  </style>
+  <body>
+    <div id="container"></div>
+  </body>
+  <script>
+    let x = document.getElementById("container");
+
+    let Array = [
+      {
+        img: "https://theflora.in/cdn/shop/articles/pexels-ameliacui-8305326_1.jpg?v=1738243855&width=2048",
+        name: "bouquet Flowers",
+        bio: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, placeat nihil <br> omnis nisi quibusdam laudantium dolorum illum ut reiciendis esse, ex labore <br>  molestias incidunt libero inventore quia eius excepturi natus.",
+        price: "RS.2499",
+      },
+      {
+        img: "https://hips.hearstapps.com/hmg-prod/images/close-up-of-roses-bouquet-royalty-free-image-1674509185.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=640:*",
+        name: " Red bouquet Flowers",
+        bio:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, placeat nihil <br> omnis nisi quibusdam laudantium dolorum illum ut reiciendis esse, ex labore <br>  molestias incidunt libero inventore quia eius excepturi natus.",
+        price: "RS.1679",
+      },
+      {
+        img: "https://cdn.atwilltech.com/flowerdatabase/p/perfect-pink-bouquet-5e2717006fe896.75817547.425.jpg",
+        name: " pink bouquet Flowers",
+        bio: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, placeat nihil <br> omnis nisi quibusdam laudantium dolorum illum ut reiciendis esse, ex labore <br>  molestias incidunt libero inventore quia eius excepturi natus.",
+        price: "RS.3499",
+      },
+      {
+        img: "https://theflora.in/cdn/shop/articles/pexels-ameliacui-8305326_1.jpg?v=1738243855&width=2048",
+        name: "bouquet Flowers",
+        bio: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, placeat nihil <br> omnis nisi quibusdam laudantium dolorum illum ut reiciendis esse, ex labore <br>  molestias incidunt libero inventore quia eius excepturi natus.",
+        price: "RS.2499",
+      },
+      {
+        img: "https://hips.hearstapps.com/hmg-prod/images/close-up-of-roses-bouquet-royalty-free-image-1674509185.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=640:*",
+        name: " Red bouquet Flowers",
+        bio:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, placeat nihil <br> omnis nisi quibusdam laudantium dolorum illum ut reiciendis esse, ex labore <br>  molestias incidunt libero inventore quia eius excepturi natus.",
+        price: "RS.1679",
+      },
+      {
+        img: "https://cdn.atwilltech.com/flowerdatabase/p/perfect-pink-bouquet-5e2717006fe896.75817547.425.jpg",
+        name: " pink bouquet Flowers",
+        bio: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, placeat nihil <br> omnis nisi quibusdam laudantium dolorum illum ut reiciendis esse, ex labore <br>  molestias incidunt libero inventore quia eius excepturi natus.",
+        price: "RS.3499",
+      },
+      {
+        img: "https://theflora.in/cdn/shop/articles/pexels-ameliacui-8305326_1.jpg?v=1738243855&width=2048",
+        name: "bouquet Flowers",
+        bio: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, placeat nihil <br> omnis nisi quibusdam laudantium dolorum illum ut reiciendis esse, ex labore <br>  molestias incidunt libero inventore quia eius excepturi natus.",
+        price: "RS.2499",
+      },
+      {
+        img: "https://hips.hearstapps.com/hmg-prod/images/close-up-of-roses-bouquet-royalty-free-image-1674509185.jpg?crop=0.668xw:1.00xh;0.167xw,0&resize=640:*",
+        name: " Red bouquet Flowers",
+        bio:"  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, placeat nihil <br> omnis nisi quibusdam laudantium dolorum illum ut reiciendis esse, ex labore <br>  molestias incidunt libero inventore quia eius excepturi natus.",
+        price: "RS.1679",
+      },
+      {
+        img: "https://cdn.atwilltech.com/flowerdatabase/p/perfect-pink-bouquet-5e2717006fe896.75817547.425.jpg",
+        name: " pink bouquet Flowers",
+        bio: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, placeat nihil <br> omnis nisi quibusdam laudantium dolorum illum ut reiciendis esse, ex labore <br>  molestias incidunt libero inventore quia eius excepturi natus.",
+        price: "RS.3499",
+      },
+      {
+        img: "https://cdn.atwilltech.com/flowerdatabase/p/perfect-pink-bouquet-5e2717006fe896.75817547.425.jpg",
+        name: " pink bouquet Flowers",
+        bio: "  Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, placeat nihil <br> omnis nisi quibusdam laudantium dolorum illum ut reiciendis esse, ex labore <br>  molestias incidunt libero inventore quia eius excepturi natus.",
+        price: "RS.3499",
+      },
+    ];
+
+    for (let i = 0; i <= 9; i++) {
+      let y = document.createElement("div");
+      y.innerHTML = `
+     <img src="${Array[i].img}">
+     <h1>${Array[i].name}</h1>
+     <p>${Array[i].bio}</p>
+     <p>${Array[i].price}</p>
+     `;
+      x.append(y);
+    }
+  </script>
+</html>

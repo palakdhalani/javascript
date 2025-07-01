@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day - Timer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .timer-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 40px 25px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+        }
+        .timer-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #667eea, #764ba2, #667eea);
+            border-radius: 22px;
+            z-index: -1;
+            opacity: 0.7;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+        }
+        .input-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        input[type="number"] {
+            padding: 15px 20px;
+            border: 2px solid #e1e5e9;
+            border-radius: 12px;
+            font-size: 16px;
+            background: #f8f9fa;
+            transition: all 0.3s ease;
+            outline: none;
+            color: #333;
+        }
+        input[type="number"]:focus {
+            border-color: #667eea;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+        input[type="number"]::placeholder {
+            color: #999;
+            font-weight: 300;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+        input[type="number"] {
+            -moz-appearance: textfield;
+        }
+        button {
+            padding: 15px 30px;
+            background-image: linear-gradient(to right, #24C6DC 0%, #514A9D  51%, #24C6DC  100%);
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;            
+            box-shadow: 0 0 15px #eee;
+            border-radius: 10px;
+            font-size: 18px;
+        }
+        button:hover {
+            background-position: right center; 
+            color: #fff;
+            text-decoration: none;
+        }
+        .timer-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: #667eea;
+        }
+        #showTimer {
+            margin: 20px 0px 0px 0px;
+        }
+        @media (max-width: 600px) {
+            .timer-container {
+                padding: 30px 20px;
+                margin: 10px;
+            }
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+            .input-group {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            input[type="number"] {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+            button {
+                padding: 12px 30px;
+                font-size: 16px;
+                width: 100%;
+            }
+        }
+        .timer-container {
+            animation: fadeInUp 0.6s ease-out;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        input:focus-visible,
+        button:focus-visible {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
+        }
+    </style>     
+</head>
+<body>
+    <div class="timer-container">
+        <div class="timer-icon">⏰</div>
+        <h1>Timer</h1>
+        <div class="input-group">
+            <input type="number" id="dayInput" placeholder="Enter Days">
+            <input type="number" id="hourInput" placeholder="Enter Hours">
+            <input type="number" id="minuteInput" placeholder="Enter Minutes">
+            <input type="number" id="secondInput" placeholder="Enter seconds">
+        </div>
+        <button onclick="timer()">Start Timer</button>
+        <h1 id="showTimer"></h1>
+    </div>
+
+    <script>
+        function timer() {
+            let day = document.getElementById("dayInput").value
+            let hour = document.getElementById("hourInput").value
+            let minute = document.getElementById("minuteInput").value
+            let second = document.getElementById("secondInput").value
+            
+            let remove1 = document.getElementById("dayInput")
+            let remove2 = document.getElementById("hourInput")
+            let remove3 = document.getElementById("minuteInput")
+            let remove4 = document.getElementById("secondInput")
+
+            let showTimer = document.getElementById("showTimer")
+
+            setInterval(()=> {
+                if (day > 0 && hour == 0 && minute == 0 && second == 0) {
+                    day--
+                    hour = 24
+                }
+                if (hour > 0 && minute == 0 && second == 0) {
+                    hour--
+                    minute = 60
+                }
+                if (minute > 0 && second == 0) {
+                    minute--
+                    second = 60
+                }
+                if (second > 0) {
+                    second--
+                    showTimer.innerText = `${day} : ${hour} : ${minute} : ${second}`
+                }
+            }, 1000) 
+
+            remove1.value = ''
+            remove2.value = ''
+            remove3.value = ''
+            remove4.value = ''
+        }
+    </script>
+</body>
+</html>

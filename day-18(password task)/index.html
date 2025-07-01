@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: #181818;
+            color: #f1f1f1;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        input[type="text"], input[type="password"] {
+            background: #232323;
+            color: #f1f1f1;
+            border: 1px solid #444;
+            border-radius: 4px;
+            padding: 10px;
+            margin: 8px 0;
+            width: 220px;
+            font-size: 16px;
+        }
+        input[type="button"] {
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        input[type="button"]:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="box">
+    <input type="text" id="username" placeholder="Username">
+    <input type="password" id="password" placeholder="Password">
+     <h4 onclick="changepass()">Forget password??</h4>
+    <input type="button" value="Log In" onclick="oldusername()">
+    </div>
+
+     <input type="password" id="password" placeholder="password">
+    <input type="password" id="password" placeholder="Password">
+    <input type="button" value="Change Password" onclick="newpass()">
+
+</body>
+
+<script>
+    let username =  "palak"
+    let password = "palak123"
+
+    function oldusername(){
+        let newuser = document.getElementById("username").value
+        let newpass = document.getElementById("password").value
+
+        if (username == newuser && password == newpass) {
+            alert("LOG IN...SUCCESSFULLY")
+        }
+        else{
+            alert("Invalid username or password")
+        }
+    }
+
+    function newpass(){
+        let newuser = document.getElementById("username").value
+        let newpass = document.getElementById("password").value
+
+    }
+
+   function changepass(){
+        let hotwheels = getElementById("box")
+        hotwheels.innerhtml = `
+
+        `
+    }
+
+   
+</script>
+</html>

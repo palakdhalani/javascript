@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="" id="userinput" />
+    <button onclick="add()">add</button>
+
+    <ul id="net"></ul>
+  </body>
+  <script>
+    let array = [];
+    function add() {
+      let userinput = document.getElementById("userinput").value;
+      let userinput2 = document.getElementById("userinput");
+
+      // localStorage.setItem(`list${index}`,userinput)
+      let net = document.getElementById("net");
+      net.innerHTML += `
+       <li>${userinput}</li>
+    `;
+
+      array.push(userinput);
+      localStorage.setItem("userlist", JSON.stringify(array));
+
+      userinput2.value = "";
+    }
+
+    let went = JSON.parsh(localStorage.getItem("userlist"));
+
+    went.forEach((element) => {
+      let net = document.getElementById("net");
+      net.innerHTML += `
+       <li>${element}</li>
+       `;
+    });
+  </script>
+</html>
